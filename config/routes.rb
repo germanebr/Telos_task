@@ -9,12 +9,18 @@ Rails.application.routes.draw do
 
   get "books_sold", to: "books_sold#index"
 
+  get "client_password", to: "client_passwords#edit", as: :client_edit_password
+  patch "client_password", to: "client_passwords#update"
+
   get "sign_up_client", to: "client_registrations#new"
   post "sign_up_client", to: "client_registrations#create"
   delete "client_logout", to: "client_sessions#destroy"
 
   get "sign_in_client", to: "client_sessions#new"
   post "sign_in_client", to: "client_sessions#create"
+
+  get "seller_password", to: "seller_passwords#edit", as: :seller_edit_password
+  patch "seller_password", to: "seller_passwords#update"
 
   get "sign_up_seller", to: "seller_registrations#new"
   post "sign_up_seller", to: "seller_registrations#create"

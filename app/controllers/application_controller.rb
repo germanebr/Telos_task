@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
       Current.seller = Seller.find_by(id: session[:seller_id])
     end
   end
+
+  def require_client_logged_in!
+    redirect_to sign_in_client_path, alert: "You must be signed in to do that!" if Current.user.nil?
+  end
+
+  def require_seller_logged_in!
+    redirect_to sign_in_seller_path, alert: "You must be signed in to do that!" if Current.seller.nil?
+  end
 end

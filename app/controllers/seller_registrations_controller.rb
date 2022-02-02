@@ -17,6 +17,6 @@ class SellerRegistrationsController < ApplicationController
   private
   def seller_params
     params.require(:seller).permit(:name, :phone, :email, :password, :password_confirmation)
-    params[:earnings] = 0
+    #params[:earnings] = 0
   end
 end

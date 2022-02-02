@@ -1,39 +1,40 @@
 <h1>Sign Up as Seller</h1>
 
 <%= form_with model: @seller, url: sign_up_seller_path do |form| %>
-  <% if @seller.errors.any? %>
+  <% if form.object.errors.any? %>
     <div class="alert alert-danger">
-    <% @seller.errors.full_messages.each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+      <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
   <% end %>
 
   <div class="mb-3">
     <%= form.label :name %>
-    <%= form.text_field :name, class="form-control", placeholder: "Chuchita Pérez" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Chuchita Perez" %>
   </div>
 
   <div class="mb-3">
     <%= form.label :phone %>
-    <%= form.text_field :phone, class="form-control", placeholder: "123456" %>
+    <%= form.text_field :phone, class: "form-control", placeholder: "123456" %>
   </div>
 
   <div class="mb-3">
     <%= form.label :email %>
-    <%= form.text_field :email, class="form-control" , placeholder: "correo@mail.com"%>
+    <%= form.text_field :email, class: "form-control" , placeholder: "correo@mail.com"%>
   </div>
 
   <div class="mb-3">
     <%= form.label :password %>
-    <%= form.password_field :password, class="form-control", placeholder: "password" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
   </div>
 
   <div class="mb-3">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class="form-control", placeholder: "password" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
   </div>
 
   <div class="mb-3">
-    <%= form.submit, class="btn btn-outline-success" %>
+    <%= form.submit "Sign Up", class: "btn btn-outline-success" %>
   </div>
 <% end %>

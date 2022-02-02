@@ -17,6 +17,6 @@ class ClientRegistrationsController < ApplicationController
   private
   def client_params
     params.require(:client).permit(:name, :email, :address, :password, :password_confirmation)
-    params[:funds] = 50
+    #params[:funds] = 50.to_s
   end
 end
