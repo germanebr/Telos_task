@@ -1,0 +1,39 @@
+<h1>Sign Up as Client and get $50 dollars! </h1>
+
+<%= form_with model: @client, url: sign_up_client_path do |form| %>
+  <% if @client.errors.any? %>
+    <div class="alert alert-danger">
+    <% @client.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class="form-control", placeholder: "Chuchita Pérez" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class="form-control", placeholder: "correo@mail.com" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address %>
+    <%= form.text_field :address, class="form-control" , placeholder: "Casa Grande 52"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password %>
+    <%= form.password_field :password, class="form-control", placeholder: "password" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class="form-control", placeholder: "password" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit, class="btn btn-outline-success" %>
+  </div>
+<% end %>

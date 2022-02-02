@@ -1,0 +1,39 @@
+<h1>Sign Up as Seller</h1>
+
+<%= form_with model: @seller, url: sign_up_seller_path do |form| %>
+  <% if @seller.errors.any? %>
+    <div class="alert alert-danger">
+    <% @seller.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class="form-control", placeholder: "Chuchita Pérez" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class="form-control", placeholder: "123456" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class="form-control" , placeholder: "correo@mail.com"%>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password %>
+    <%= form.password_field :password, class="form-control", placeholder: "password" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class="form-control", placeholder: "password" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit, class="btn btn-outline-success" %>
+  </div>
+<% end %>

@@ -9,5 +9,11 @@ Rails.application.routes.draw do
 
   get "books_sold", to: "books_sold#index"
 
+  get "sign_up_client", to: "client_registrations#new"
+  post "sign_up_client", to: "client_registrations#create"
+
+  get "sign_up_seller", to: "seller_registrations#new"
+  post "sign_up_seller", to: "seller_registrations#create"
+
   root to: "main#index"
 end
