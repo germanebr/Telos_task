@@ -7,6 +7,7 @@ class SellerRegistrationsController < ApplicationController
     @seller = Seller.new(seller_params)
 
     if @seller.save
+      session[:seller_id] = @seller.id
       redirect_to root_path, notice: "Succesfully created a seller."
     else
       render :new

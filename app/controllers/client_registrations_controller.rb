@@ -7,6 +7,7 @@ class ClientRegistrationsController < ApplicationController
     @client = Client.new(client_params)
 
     if @client.save
+      session[:client_id] = @client.id
       redirect_to root_path, notice: "Succesfully created a client."
     else
       render :new
