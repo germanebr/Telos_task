@@ -11,9 +11,11 @@ Rails.application.routes.draw do
 
   get "sign_up_client", to: "client_registrations#new"
   post "sign_up_client", to: "client_registrations#create"
+  delete "client_logout", to: "client_sessions#destroy"
 
   get "sign_up_seller", to: "seller_registrations#new"
   post "sign_up_seller", to: "seller_registrations#create"
+  delete "seller_logout", to: "seller_sessions#destroy"
 
   root to: "main#index"
 end

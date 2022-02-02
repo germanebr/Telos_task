@@ -1,13 +1,17 @@
 <div class="d-flex align-items-center justify-content-center">
   <h1> Telos Bookstore</h1>
-
-  <% if @client %>
-    Logged in as client: <%= @client.name %>
-    Total funds: $<%= @client.funds %>
-  <% end %>
-
-  <% if @seller %>
-    Logged in as seller: <%= @seller.name %>
-    Total earnings: $<%= @seller.earnings %>
-  <% end %>
 </div>
+
+<% if @client %>
+  Logged in as client: <%= @client.name %>
+  Total funds: $<%= @client.funds %>
+
+  <%= button_to "Client Logout", client_logout_path, method: :delete %>
+<% end %>
+
+<% if @seller %>
+  Logged in as seller: <%= @seller.name %>
+  Total earnings: $<%= @seller.earnings %>
+
+  <%= button_to "Seller Logout", seller_logout_path, method: :delete %>
+<% end %>
