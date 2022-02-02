@@ -35,6 +35,48 @@
         <input class="form-control me-2" type="search" placeholder="Search Book Title" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if Current.client %>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.client.name %></span>
+          </li>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.client.funds %></span>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", client_logout_path, method: :delete, class: "btn btn-outline-secondary" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Client Sign Up", sign_up_client_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Client Login", sign_in_client_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if Current.seller %>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.seller.name %></span>
+          </li>
+          <li class="nav-item">
+            <span class="navbar-text"><%= Current.seller.earnings %></span>
+          </li>
+          <li class="nav-item">
+            <%= button_to "Logout", seller_logout_path, method: :delete, class: "btn btn-outline-secondary" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Seller Sign Up", sign_up_seller_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Seller Login", sign_in_seller_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>
