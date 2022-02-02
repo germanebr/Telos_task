@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get "client_password", to: "client_passwords#edit", as: :client_edit_password
   patch "client_password", to: "client_passwords#update"
 
+  get "client_password/reset", to: "client_passwords_resets#new"
+  post "client_password/reset", to: "client_passwords_resets#create"
+  get "client_password/reset/edit", to: "client_passwords_resets#edit"
+  patch "client_password/reset/edit", to: "client_passwords_resets#update"
+
   get "sign_up_client", to: "client_registrations#new"
   post "sign_up_client", to: "client_registrations#create"
   delete "client_logout", to: "client_sessions#destroy"
@@ -21,6 +26,11 @@ Rails.application.routes.draw do
 
   get "seller_password", to: "seller_passwords#edit", as: :seller_edit_password
   patch "seller_password", to: "seller_passwords#update"
+
+  get "seller_password/reset", to: "seller_passwords_resets#new"
+  post "seller_password/reset", to: "seller_passwords_resets#create"
+  get "seller_password/reset/edit", to: "seller_passwords_resets#edit"
+  patch "seller_password/reset/edit", to: "seller_passwords_resets#update"
 
   get "sign_up_seller", to: "seller_registrations#new"
   post "sign_up_seller", to: "seller_registrations#create"
